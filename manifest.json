@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "Ekşi Sözlük Ad Blocker",
+    "version": "1.0.0",
+    "description": "Ekşi Sözlük için reklam engelleme eklentisi",
+    "author": "gneral",
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_title": "Ekşi Sözlük Ad Blocker"
+    },
+    "permissions": [
+      "storage"
+    ],
+    "host_permissions": [
+      "*://eksisozluk.com/*",
+      "*://*.eksisozluk.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["*://eksisozluk.com/*", "*://*.eksisozluk.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "options_ui": {
+      "page": "options.html",
+      "open_in_tab": false
+    }
+  }
