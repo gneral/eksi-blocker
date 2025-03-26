@@ -16,6 +16,21 @@ Ekşi Sözlük için reklamsız deneyim sunan Chrome eklentisi.
 - Hızlı ve verimli performans
 - Resim kullanmadan sade bir arayüz
 
+## Kurulum
+
+### Windows'ta Kurulum
+1. Proje dosyalarını bilgisayarınıza indirin
+2. `kurulum.bat` dosyasını çalıştırın
+3. Script otomatik olarak gereken tüm dosyaları oluşturacak ve temel ikonları hazırlayacaktır
+4. Oluşturulan klasörü ya da ZIP dosyasını Chrome'a yükleyin
+
+### Chrome'a Yükleme
+1. Chrome tarayıcınızda `chrome://extensions` adresine gidin
+2. Sağ üst köşedeki "Geliştirici modu"nu etkinleştirin
+3. "Paketlenmemiş öğe yükle" butonuna tıklayın
+4. Projenizin bulunduğu klasörü seçin ya da oluşturulan ZIP dosyasını çıkardığınız klasörü gösterin
+5. Eklenti tarayıcınıza yüklenecektir
+
 ## Nasıl Çalışır?
 
 Bu eklenti, eksisozluk.com sitesinde gezindiğinizde sayfa içeriğini analiz eder ve reklam olarak tanımlanan öğeleri otomatik olarak kaldırır. Reklamlar DOM'dan tamamen temizlenir ve sayfa düzeni korunur.
@@ -26,22 +41,6 @@ Eklenti şu reklam türlerini tespit edip kaldırır:
 - Yan panel reklamları
 - İçerik akışı içindeki reklamlar
 - Ürün reklamları ve sponsorlu içerikler
-
-## Kurulum
-
-### Chrome Web Mağazasından:
-1. Chrome Web Mağazasından "Ekşi Sözlük Ad Blocker" eklentisini arayın
-2. "Chrome'a Ekle" butonuna tıklayın
-3. Eklenti otomatik olarak kurulacaktır
-
-### Manuel Kurulum:
-1. Bu depoyu ZIP olarak indirin
-2. ZIP dosyasını bir klasöre çıkarın
-3. Chrome'da `chrome://extensions` adresine gidin
-4. "Geliştirici modu"nu etkinleştirin (sağ üst köşede)
-5. "Paketlenmemiş öğe yükle" butonuna tıklayın
-6. Çıkardığınız klasörü seçin
-7. Eklenti tarayıcınıza yüklenecektir
 
 ## Kullanım
 
@@ -55,6 +54,22 @@ Ayarlar sayfasında şu seçenekler bulunur:
 - Kenar Çubuğu Reklamlarını Engelle
 - İçerik İçi Reklamları Engelle
 - IFrame Reklamları Engelle
+
+## Proje Dosyaları
+
+- `manifest.json`: Eklentinin tanımlayıcı dosyası
+- `content.js`: Reklam engelleme algoritması
+- `background.js`: Arka plan işlemleri için hizmet çalıştırıcı
+- `popup.html/js`: Eklenti popup arayüzü
+- `options.html/js`: Ayarlar sayfası
+- `kurulum.bat`: Windows için kurulum scripti
+- `icons/`: Eklenti ikonları
+
+## Geliştirici Notları
+
+- Eklenti, MutationObserver API kullanarak dinamik olarak yüklenen reklamları da tespit eder
+- CSS seçiciler ve DOM manipülasyonu ile reklamlar sayfa yüklenmeden önce engellenir
+- Çerezlere veya site verilerine müdahale edilmez, sadece reklam içerikleri kaldırılır
 
 ## Teknik Detaylar
 
